@@ -1,9 +1,10 @@
-#include <unistd.h>
-#include "./headers/constants.h"
+#include <stdio.h>
+#include "headers/constants.h"
+#include "headers/utils.h"
 
-int main()
+int main(int argc, char *argv[])
 {
-    char buf[] = "Hello World\n";
-    write(STDOUT_FILENO, buf, sizeof(buf));
+    char* path = get_path(argc, argv);
+    printf("\n%s\n", path);
     return 0;
 }
