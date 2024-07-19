@@ -7,8 +7,10 @@ char* get_path(int argc, char* argv[]){
     {
         return NULL;
     }
-    for(int i=0; i<argc; i++){
-        if(i == path_index){
+    for (int i = 0; i < argc; i++)
+    {
+        if (i == path_index)
+        {
             return argv[i];
         }
     }
