@@ -1,9 +1,11 @@
 #include <stddef.h>
+#include <stdlib.h>
 #include "headers/utils.h"
 
-char* get_path(int argc, char* argv[]){
+char *get_path(int argc, char *argv[])
+{
     int path_index = 1;
-    if(argc != 2)
+    if (argc != 2)
     {
         return NULL;
     }
@@ -14,4 +16,9 @@ char* get_path(int argc, char* argv[]){
             return argv[i];
         }
     }
+}
+
+void clear()
+{
+    system("clear");
 }

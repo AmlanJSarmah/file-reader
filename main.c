@@ -11,5 +11,6 @@ int main(int argc, char *argv[])
         perror("PATH: Enter Valid Path");
         exit(1);
     }
+    clear();
     return 0;
 }
