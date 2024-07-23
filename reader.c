@@ -4,6 +4,7 @@
 #include <fcntl.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <sys/ioctl.h>
 #include "headers/reader.h"
 #include "headers/constants.h"
 
@@ -35,4 +36,12 @@ void get_data_from_file(char *path, char *buffer)
         perror("READ: Cannot Read Data");
         exit(1);
     }
+}
+
+// TODO: Make it like an editor and add line numbers and fill remaining area with empty text
+void get_editor_size()
+{
+    struct winsize ws;
+    ioctl(STDOUT_FILENO, TIOCGWINSZ, &ws);
+    printf("%d %d\n", ws.ws_row, ws.ws_col);
 }

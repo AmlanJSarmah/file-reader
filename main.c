@@ -16,6 +16,7 @@ int main(int argc, char *argv[])
     clear();
     get_data_from_file(path, buffer);
     printf("%s\n", buffer);
+    get_editor_size();
     fflush(stdout);
     return 0;
 }
