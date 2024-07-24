@@ -19,6 +19,5 @@ int main(int argc, char *argv[])
     clear();
     get_data_from_file(path, buffer);
     printf("%s\n", buffer);
-    fflush(stdout);
     return 0;
 }

@@ -50,5 +50,4 @@ void window_resize_signal_handle(int signum)
 {
     struct winsize size = get_editor_size();
     printf("\nCols = %d Rows = %d\n", size.ws_col, size.ws_row);
-    fflush(stdout);
 }
