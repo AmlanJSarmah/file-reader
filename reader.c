@@ -15,33 +15,40 @@ void get_data_from_file(char *path, char *buffer)
     if (stat(path, &stat_buf) == -1)
     {
         perror("GET: File information");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
-    if(S_ISDIR(stat_buf.st_mode))
+    if (S_ISDIR(stat_buf.st_mode))
     {
         perror("You Entered a path to directory");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
 
     int fd = open(path, O_RDONLY);
     if (!fd)
     {
         perror("OPEN: Cannot open file");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
 
     // We read the contents
     if (!read(fd, buffer, BUF_SIZE))
     {
         perror("READ: Cannot Read Data");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
 }
 
 // TODO: Make it like an editor and add line numbers and fill remaining area with empty text
-void get_editor_size()
+struct winsize get_editor_size()
 {
     struct winsize ws;
     ioctl(STDOUT_FILENO, TIOCGWINSZ, &ws);
-    printf("%d %d\n", ws.ws_row, ws.ws_col);
+    return ws;
+}
+
+void window_resize_signal_handle(int signum)
+{
+    struct winsize size = get_editor_size();
+    printf("\nCols = %d Rows = %d\n", size.ws_col, size.ws_row);
+    fflush(stdout);
 }
