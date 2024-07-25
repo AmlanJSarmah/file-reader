@@ -19,5 +19,9 @@ int main(int argc, char *argv[])
     clear();
     get_data_from_file(path, buffer);
     printf("%s\n", buffer);
+    while (1)
+    {
+        // loop here
+    }
     return 0;
 }
