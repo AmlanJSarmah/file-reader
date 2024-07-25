@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
     printf("%s\n", buffer);
     while (1)
     {
-        // loop here
+        // TODO: Detech Keypress here to break loop 
     }
     return 0;
 }
